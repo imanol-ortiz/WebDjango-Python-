@@ -8,8 +8,8 @@ def sign_up(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
-            
+            return redirect('users/login')
+   
     else:
         form=Sign_upform()    
     context = {
