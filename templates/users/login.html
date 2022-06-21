@@ -2,30 +2,32 @@
 {% block title %}Login{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="cover">
 
-<div class="container">
-    <div class="row mt-5 pt-3">
-        <div class="col-md-5 offset-md-7">
-            <div class="card my-3 shadow">
-                <div class="card-body">
-                    <h4>Te esperabamos :D</h4>
-                    <hr>
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        <input class="btn btn-primary btn-block" type="submit" value="Entrar">
-                    </form>
-                    <div class="text-center my-3">
-                        <a href="">¿Olvidaste tu Contraseña?</a>
+
+    <div class="container">
+        <div class="row mt-5 pt-3">
+            <div class="col-md-5 offset-md-7">
+                <div class="card my-3 shadow">
+                    <div class="card-body">
+                        <h4>Te esperabamos :D</h4>
+                        <hr>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <input class="btn btn-primary btn-block" type="submit" value="Entrar">
+                        </form>
+                        <div class="text-center my-3">
+                            <a href="">¿Olvidaste tu Contraseña?</a>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <a class="btn btn-success" href="{%url 'users-sign-up' %}"> Crear una cuenta  </a>
+                        </div>  
                     </div>
-                    <hr>
-                    <div class="text-center">
-                        <a class="btn btn-success" href="{%url 'users-sign-up' %}"> Crear una cuenta  </a>
-                    </div>  
-                </div>
-            </div> 
+                </div> 
+            </div>
         </div>
     </div>
 </div>
-
 {% endblock %}
