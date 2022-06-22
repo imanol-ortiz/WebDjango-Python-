@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Postmodel
-from .forms import Postmodelform
+from .forms import Postmodelform, Postupdateform
 # Create your views here.
 
 def home(request):
@@ -24,3 +24,38 @@ def home(request):
 
 def about(request):
     return 
+
+def post_detail(request, pk):
+    post = Postmodel.objects.get(id=pk)
+    context = {
+        'post':post,                
+    }
+    return render(request,'blog/post_detail.html',context)
+
+def post_edit(request, pk):
+    post = Postmodel.objects.get(id=pk)
+    if request.method == 'POST':
+        form = Postupdateform(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('blog-post-detail', pk=post.id)
+    else:
+        form = Postupdateform(instance=post)
+    context = {
+        'post': post,
+        'form': form,
+    }
+    return render(request, 'blog/post_edit.html', context)
+
+def post_delete(request, pk):
+    post = Postmodel.objects.get(id=pk)
+    if request.method == 'POST':
+        post.delete()
+       
+# Redirigir a home       
+       
+        return redirect('home')
+    context = {
+        'post': post
+    }
+    return render(request, 'blog/post_delete.html', context)

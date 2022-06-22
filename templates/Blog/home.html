@@ -22,14 +22,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="" alt="img">    
+                            <img class="img-thumbnail" src="{{post.author.profilemodel.image.url}}" alt="img">    
                         </div>
                         <div class="col-md-8">
-                            <small>{{ post.date_created}}</small>
+                            <small>{{ post.date_created }}</small>
                             <hr>
-                            <a class="h3" href="">{{post.titulo}}</a>
+                            <a class="h3" href="{% url 'blog-post-detail' post.id %}">{{ post.titulo }}</a>
                             <p class="text-justify my-3">
-                                {{post.contenido}}
+                                {{ post.contenido }}
 
                             </p>
                         
