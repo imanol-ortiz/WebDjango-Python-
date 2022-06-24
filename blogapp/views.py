@@ -25,7 +25,7 @@ def home(request):
 
 
 def about(request):
-    return 
+    return render(request, 'Blog/aboutus.html') 
 
 @login_required
 def post_detail(request, pk):
