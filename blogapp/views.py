@@ -23,7 +23,7 @@ def home(request):
     return render(request, 'Blog/home.html', context)
 
 def about(request):
-    return 
+    return render(request, 'Blog/aboutus.html') 
 
 def post_detail(request, pk):
     post = Postmodel.objects.get(id=pk)
