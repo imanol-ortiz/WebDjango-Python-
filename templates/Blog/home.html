@@ -21,24 +21,20 @@
             <div class="card shadow my-3">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <img class="img-thumbnail" src="{{post.author.profilemodel.image.url}}" alt="img">    
                         </div>
                         <div class="col-md-8">
-                            <small>{{ post.date_created }}</small>
+                            <strong>{{ post.author }}<strong> <small> {{ post.date_created }}</small>
                             <hr>
                             <a class="h3" href="{% url 'blog-post-detail' post.id %}">{{ post.titulo }}</a>
                             <p class="text-justify my-3">
                                 {{ post.contenido }}
 
-                            </p>
-                        
-
-                        
+                            </p>                        
                         </div>
-                    </div>
-                </div>
-            
+                    </div>                    
+                </div>            
             </div>
  
             {% endfor %}
